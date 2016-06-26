@@ -326,7 +326,7 @@ if ( ! class_exists( 'ReduxFramework_spacing' ) ) {
                     $num_no_alpha = preg_replace('/[^\d.-]/', '', $value);
 
                     // Output if it's a numeric entry
-                    if ( isset( $value ) && is_numeric( $num_no_alpha ) ) {
+                    if ( isset( $value ) && $value!='' && is_numeric( $num_no_alpha ) ) {
                         $style .= $key . ':' . $value . ';';
                     }
 
@@ -344,25 +344,25 @@ if ( ! class_exists( 'ReduxFramework_spacing' ) ) {
                     'left'   => isset( $this->value[ $mode . '-left' ] ) ? filter_var( $this->value[ $mode . '-left' ], FILTER_SANITIZE_NUMBER_INT ) : filter_var( $this->value['left'], FILTER_SANITIZE_NUMBER_INT )
                 );
 
-                if ( isset( $this->field['all'] ) && true == $this->field['all'] ) {
+                if ( isset( $this->field['all'] ) && ($cleanValue['top']) != "" && true == $this->field['all'] ) {
                     $style .= $mode . 'top:' . $cleanValue['top'] . $units . ';';
                     $style .= $mode . 'bottom:' . $cleanValue['top'] . $units . ';';
                     $style .= $mode . 'right:' . $cleanValue['top'] . $units . ';';
                     $style .= $mode . 'left:' . $cleanValue['top'] . $units . ';';
                 } else {
-                    if ( true == $this->field['top'] ) {
+                    if ( (true == $this->field['top']) && ($this->field['top'] != '')) {
                         $style .= $mode . 'top:' . $cleanValue['top'] . $units . ';';
                     }
 
-                    if ( true == $this->field['bottom'] ) {
+                    if ( (true == $this->field['bottom']) && ($this->field['bottom'] != '')) {
                         $style .= $mode . 'bottom:' . $cleanValue['bottom'] . $units . ';';
                     }
 
-                    if ( true == $this->field['left'] ) {
+                    if ( (true == $this->field['left']) && ($this->field['left'] != '')) {
                         $style .= $mode . 'left:' . $cleanValue['left'] . $units . ';';
                     }
 
-                    if ( true == $this->field['right'] ) {
+                    if ( (true == $this->field['right']) && ($this->field['right'] != '')) {
                         $style .= $mode . 'right:' . $cleanValue['right'] . $units . ';';
                     }
                 }

@@ -239,7 +239,7 @@ if( !class_exists( 'ReduxFramework_color_rgba' ) ) {
 
                     // Sanitize alpha
                     if ($id == 'alpha') {
-                        $alpha = !empty($val) ? $val : 1;
+                        $alpha = ($val != 0 || !empty($val)) ? $val : 1;
                     } elseif ($id == 'color') {
                         $color = !empty($val) ? $val : '';
                     } elseif ($id == 'rgba') {

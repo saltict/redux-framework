@@ -293,12 +293,12 @@ if ( ! class_exists( 'ReduxFramework_border' ) ) {
                     if ( $key == "color" || $key == "style" ) {
                         continue;
                     }
-                    if (!empty($value)) {
+                    if (!empty($value) && ($value != '')) {
                         $style .= 'border-' . $key . ':' . $value . ' ' . $cleanValue['style'] . ' ' . $cleanValue['color'] . ';';
                     }
                 }
             } else {
-                if (!empty($cleanValue['top'])) {
+                if (!empty($cleanValue['top']) && ($cleanValue['top'] != '')) {
                     $style .= 'border:' . $cleanValue['top'] . ' ' . $cleanValue['style'] . ' ' . $cleanValue['color'] . ';';
                 }
             }
