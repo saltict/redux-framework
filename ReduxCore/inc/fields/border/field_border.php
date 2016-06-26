@@ -293,7 +293,7 @@ if ( ! class_exists( 'ReduxFramework_border' ) ) {
                     if ( $key == "color" || $key == "style" ) {
                         continue;
                     }
-                    if (!empty($value) && ($value != '')) {
+                    if (!empty($value) && (filter_var( $value , FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION ) != '')) {
                         $style .= 'border-' . $key . ':' . $value . ' ' . $cleanValue['style'] . ' ' . $cleanValue['color'] . ';';
                     }
                 }
