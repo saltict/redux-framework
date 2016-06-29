@@ -396,6 +396,10 @@
                 $css = '';
 
                 if ( ! empty( $value ) && is_array( $value ) ) {
+                    //Background image none when not set background image that set background color
+                    if(!empty($value['background-color']) && empty($value['background-image'])){
+                        $css .= 'background-image: none;';
+                    }
                     foreach ( $value as $key => $value ) {
                         if ( ! empty( $value ) && $key != "media" ) {
                             if ( $key == "background-image" ) {
